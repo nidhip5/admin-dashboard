@@ -32,7 +32,7 @@ const Transactions = () => {
     <div className="bg-admin-soft-color p-5 rounded-[10px]">
       <h2>Latest Transactions</h2>
       <table className="w-full">
-        <thead className="mt-1 font-extralight text-admin-soft-color">
+        <thead className="mt-1 font-extralight text-[#7f8ca7]">
           <tr>
             <td className="p-5">Name</td>
             <td className="p-5">Status</td>
