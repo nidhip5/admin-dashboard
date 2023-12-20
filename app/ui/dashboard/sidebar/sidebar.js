@@ -79,8 +79,8 @@ const menuItem = [
 ];
 const sidebar = () => {
   return (
-    <div className="sticky top-10">
-      <div className="flex items-center gap-5 mb-5">
+    <div className="fixed w-80 h-screen">
+      <div className="flex items-center gap-5 my-5">
         <FaUserCircle className="h-12 w-12" />
         <div className="flex flex-col">
           <span className="font-medium">Nidhi Patel</span>

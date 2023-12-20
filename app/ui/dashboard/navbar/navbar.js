@@ -11,7 +11,7 @@ import {
 const Navbar = () => {
   const pathname = usePathname();
   return (
-    <div className="p-5 rounded-[10px] bg-admin-soft-color flex items-center justify-between">
+    <div className="p-5 rounded-b-[10px] bg-admin-soft-color flex items-center justify-between sticky top-0">
       <div className="text-[#7f8ca7] font-bold capitalize">
         {pathname.split("/").pop()}
       </div>
