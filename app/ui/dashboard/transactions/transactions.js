@@ -50,7 +50,7 @@ const Transactions = () => {
                 </td>
                 <td className="p-5">
                   <span
-                    className={`rounded-[5px] p-1.5 text-sm text-white ${
+                    className={`rounded-[5px] py-0.5 px-1.5 text-sm text-white ${
                       item.status === "Pending"
                         ? "bg-[#f7cb7375]"
                         : item.status == "Cancelled"

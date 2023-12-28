@@ -24,7 +24,7 @@ const Rightbar = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry.
           </p>
-          <button className="p-2.5 flex items-center gap-2.5 text-white border-none rounded-[5px] cursor-pointer bg-[#5d57c9] w-max">
+          <button className="px-2.5 py-1.5 flex items-center gap-2.5 text-white border-none rounded-[5px] cursor-pointer bg-[#5d57c9] w-max">
             <MdPlayCircleFilled />
             Watch
           </button>
@@ -49,7 +49,7 @@ const Rightbar = () => {
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry.
           </p>
-          <button className="p-2.5 flex items-center gap-2.5 text-white border-none rounded-[5px] cursor-pointer bg-[#5d57c9] w-max">
+          <button className="px-2.5 py-1.5 flex items-center gap-2.5 text-white border-none rounded-[5px] cursor-pointer bg-[#5d57c9] w-max">
             <MdPlayCircleFilled />
             Learn
           </button>

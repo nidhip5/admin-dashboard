@@ -11,11 +11,11 @@ const ProductPage = () => {
         <Search placeholder="Search for a Product..." />
         <Link href="/dashboard/products/add">
           <button className="px-2.5 py-1.5 bg-purple-800 rounded">
-            Add New
+            Add New Product
           </button>
         </Link>
       </div>
-      <table className="w-full py-10">
+      <table className="w-full py-10 my-6 mx-3.5">
         <thead>
           <tr>
             <td className="p-2.5">Title</td>

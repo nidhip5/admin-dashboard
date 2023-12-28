@@ -12,11 +12,11 @@ const UserPage = () => {
         <Search placeholder="Search for a User..." />
         <Link href="/dashboard/users/add">
           <button className="px-2.5 py-1.5 bg-purple-800 rounded">
-            Add New
+            Add New User
           </button>
         </Link>
       </div>
-      <table className="w-full py-10">
+      <table className="w-full py-10 my-6 mx-3.5">
         <thead>
           <tr>
             <td className="p-2.5">Name</td>
@@ -30,7 +30,7 @@ const UserPage = () => {
         <tbody>
           <tr>
             <td className="p-2.5">
-              <div className="flex items-center">
+              <div className="flex items-center gap-1">
                 <FaUserTie width={40} height={40} />
                 John Doe
               </div>
@@ -40,7 +40,7 @@ const UserPage = () => {
             <td className="p-2.5">Admin</td>
             <td className="p-2.5">Active</td>
             <td className="p-2.5 flex gap-2">
-              <Link href="/">
+              <Link href="/dashboard/users/test">
                 <button className="bg-green-700 px-2.5 py-1.5 rounded">
                   View
                 </button>
