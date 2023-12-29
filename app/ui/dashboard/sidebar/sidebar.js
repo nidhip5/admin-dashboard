@@ -14,6 +14,7 @@ import {
 } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import MenuLink from "./menuLink/menuLink";
+import Link from "next/link";
 
 const menuItem = [
   {
@@ -99,10 +100,12 @@ const sidebar = () => {
           </li>
         ))}
       </ul>
-      <button className="p-5 m-1.5 flex items-center gap-2.5 bg-none border-none hover:bg-admin-color w-full cursor-pointer rounded-[10px]">
-        <MdLogout />
-        Logout
-      </button>
+      <Link href="/login">
+        <button className="p-5 m-1.5 flex items-center gap-2.5 bg-none border-none hover:bg-admin-color w-full cursor-pointer rounded-[10px]">
+          <MdLogout />
+          Logout
+        </button>
+      </Link>
     </div>
   );
 };
