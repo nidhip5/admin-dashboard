@@ -6,9 +6,9 @@ import Chart from "../ui/dashboard/chart/chart";
 
 const Dashboard = () => {
   return (
-    <div className="flex gap-5 my-5">
-      <div className="flex-[3] flex flex-col gap-5">
-        <div className="flex gap-5 justify-between">
+    <div className="flex gap-3 my-3">
+      <div className="flex-[3] flex flex-col gap-3">
+        <div className="flex gap-3 justify-between">
           <Card />
           <Card />
           <Card />

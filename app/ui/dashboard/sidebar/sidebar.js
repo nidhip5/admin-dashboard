@@ -80,7 +80,7 @@ const menuItem = [
 ];
 const sidebar = () => {
   return (
-    <div className="fixed w-80 h-screen">
+    <div className="fixed w-80 h-screen bg-admin-soft-color">
       <div className="flex items-center gap-5 my-5">
         <FaUserCircle className="h-12 w-12" />
         <div className="flex flex-col">

@@ -2,9 +2,12 @@ import Pagination from "@/app/ui/dashboard/pagination/pagination";
 import Search from "@/app/ui/dashboard/search/page";
 import Link from "next/link";
 import React from "react";
-import { FaUserTie } from "react-icons/fa";
+import { fetchProducts } from "@/app/lib/data";
 
-const ProductPage = () => {
+const ProductPage = async ({ searchParams }) => {
+  const q = searchParams?.q || "";
+  const page = searchParams?.page || 1;
+  const { count, products } = await fetchProducts(q, page);
   return (
     <div>
       <div className="flex items-center justify-between mt-5">
@@ -27,26 +30,45 @@ const ProductPage = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="p-2.5">Iphone</td>
-            <td className="p-2.5">desc</td>
-            <td className="p-2.5">$123</td>
-            <td className="p-2.5">12.02.2023</td>
-            <td className="p-2.5">70</td>
-            <td className="p-2.5 flex gap-2">
-              <Link href="/dashboard/products/test">
-                <button className="bg-green-700 px-2.5 py-1.5 rounded">
-                  View
+          {products?.map((item, index) => (
+            <tr key={index}>
+              <td className="p-2.5">
+                <div className="flex items-center gap-4 capitalize text-sm">
+                  {item?.img ? (
+                    <Image
+                      src={item?.img}
+                      alt=""
+                      height={35}
+                      width={35}
+                      className="rounded-full h-9 w-9"
+                    />
+                  ) : (
+                    <FaUserCircle className="text-4xl" />
+                  )}
+                  {item?.title}
+                </div>
+              </td>
+              <td className="p-2.5">{item?.desc}</td>
+              <td className="p-2.5">{item?.price}</td>
+              <td className="p-2.5">
+                {item?.createdAt?.toString().slice(4, 16)}
+              </td>
+              <td className="p-2.5">{item?.stock}</td>
+              <td className="p-2.5 flex gap-2">
+                <Link href={`/dashboard/products/${item?.id}`}>
+                  <button className="bg-green-700 px-2.5 py-1.5 rounded">
+                    View
+                  </button>
+                </Link>
+                <button className="bg-red-700 px-2.5 py-1.5 rounded">
+                  Delete
                 </button>
-              </Link>
-              <button className="bg-red-700 px-2.5 py-1.5 rounded">
-                Delete
-              </button>
-            </td>
-          </tr>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
-      <Pagination />
+      <Pagination count={count} />
     </div>
   );
 };
