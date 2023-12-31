@@ -58,7 +58,7 @@ const AddUser = () => {
           type="submit"
           className="col-span-2 bg-admin-soft-color p-4 rounded"
         >
-          Submit
+          Add User
         </button>
       </form>
     </div>
