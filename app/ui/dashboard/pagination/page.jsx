@@ -9,7 +9,7 @@ const Pagination = ({ count }) => {
   const page = searchParams.get("page") || 1; // get page no from searchParams if not mentioned anything we assume that we are on page 1;
 
   const params = new URLSearchParams(searchParams);
-  const ITEM_PER_PAGE = 3;
+  const ITEM_PER_PAGE = 10;
 
   const hasPrev = ITEM_PER_PAGE * (parseInt(page) - 1) > 0;
   // eg: we are on page1 then 3 * 1 - 1 which is 0 > 0 it means hasPrev button will be diabled
@@ -26,9 +26,9 @@ const Pagination = ({ count }) => {
   };
 
   return (
-    <div className="flex items-center justify-between px-2.5 py-4 text-sm">
+    <div className="flex items-center justify-between pt-4 text-sm">
       <button
-        className={`py-1.5 px-2.5 bg-gray-400 rounded ${
+        className={`py-1.5 px-2.5 bg-gray-500 rounded ${
           !hasPrev ? "cursor-not-allowed" : "cursor-pointer"
         }`}
         disabled={!hasPrev}

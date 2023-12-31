@@ -1,5 +1,6 @@
+import { deleteUser } from "@/app/lib/actions";
 import { fetchUsers } from "@/app/lib/data";
-import Pagination from "@/app/ui/dashboard/pagination/pagination";
+import Pagination from "@/app/ui/dashboard/pagination/page";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -20,7 +21,7 @@ const UserPage = async ({ searchParams }) => {
           </button>
         </Link>
       </div>
-      <table className="w-full py-10 my-6 mx-3.5 text-sm">
+      <table className="w-full py-10 my-4 mx-3.5 text-sm">
         <thead>
           <tr>
             <td className="p-2.5">Name</td>
@@ -78,9 +79,12 @@ const UserPage = async ({ searchParams }) => {
                     View
                   </button>
                 </Link>
-                <button className="bg-red-700 px-2.5 py-1.5 rounded">
-                  Delete
-                </button>
+                <form action={deleteUser}>
+                  <input type="hidden" name="id" value={item?.id} />
+                  <button className="bg-red-700 px-2.5 py-1.5 rounded">
+                    Delete
+                  </button>
+                </form>
               </td>
             </tr>
           ))}

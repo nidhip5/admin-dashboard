@@ -1,9 +1,9 @@
-import { User } from "./models";
+import { Product, User } from "./models";
 import { connectToDB } from "./utils";
 
 export const fetchUsers = async (q, page) => {
   const regex = new RegExp(q, "i"); // case insensitive
-  const ITEM_PER_PAGE = 3; // items to be displayed per page
+  const ITEM_PER_PAGE = 10; // items to be displayed per page
   try {
     connectToDB();
     const count = await User.find({ username: { $regex: regex } }).count();
@@ -19,7 +19,7 @@ export const fetchUsers = async (q, page) => {
 
 export const fetchProducts = async (q, page) => {
   const regex = new RegExp(q, "i"); // case insensitive
-  const ITEM_PER_PAGE = 3; // items to be displayed per page
+  const ITEM_PER_PAGE = 8; // items to be displayed per page
   try {
     connectToDB();
     const count = await Product.find({ title: { $regex: regex } }).count();
