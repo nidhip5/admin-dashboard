@@ -18,7 +18,6 @@ const Search = ({ placeholder }) => {
     }
     replace(`${pathName}?${params}`);
   }, 500);
-  console.log(searchParams, "searchParams", pathName, "pathName");
   return (
     <div>
       <div className="flex items-center justify-start text-sm">

@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { Product, User } from "./models";
 import { connectToDB } from "./utils";
 import bcrypt from "bcrypt";
+import { signIn } from "../auth";
 
 export const addUser = async (formData) => {
   const { username, email, password, phone, address, isAdmin, isActive } =
@@ -121,4 +122,16 @@ export const deleteProduct = async (formData) => {
     throw new Error("Failed to delete product");
   }
   revalidatePath("/dashboard/products");
+};
+
+export const authenticate = async (formData) => {
+  // destructure formdata fields
+  const { username, password } = Object.fromEntries(formData);
+  try {
+    // sign in function - comes from nextAuth auth.js
+    await signIn("credentials", { username, password });
+  } catch (err) {
+    console.log(err, "actions login error");
+    return { error: "Wrong credentials!" };
+  }
 };

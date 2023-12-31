@@ -14,7 +14,7 @@ import {
 } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import MenuLink from "./menuLink/menuLink";
-import Link from "next/link";
+import { auth, signOut } from "@/app/auth";
 
 const menuItem = [
   {
@@ -78,13 +78,26 @@ const menuItem = [
     ],
   },
 ];
-const sidebar = () => {
+const sidebar = async () => {
+  const session = await auth();
   return (
     <div className="fixed w-80 h-screen bg-admin-soft-color">
       <div className="flex items-center gap-5 mb-8">
-        <FaUserCircle className="h-12 w-12" />
+        {session?.user?.img ? (
+          <Image
+            src={session?.user?.img}
+            className="h-12 w-12 rounded-full"
+            height={12}
+            width={12}
+            alt=""
+          />
+        ) : (
+          <FaUserCircle className="h-12 w-12" />
+        )}
         <div className="flex flex-col">
-          <span className="font-medium">Nidhi Patel</span>
+          <span className="font-medium capitalize">
+            {session?.user?.username}
+          </span>
           <span className="text-sm">Administrator</span>
         </div>
       </div>
@@ -100,12 +113,17 @@ const sidebar = () => {
           </li>
         ))}
       </ul>
-      <Link href="/login">
+      <form
+        action={async () => {
+          "use server";
+          await signOut();
+        }}
+      >
         <button className="p-5 m-1.5 flex items-center gap-2.5 bg-none border-none hover:bg-admin-color w-full cursor-pointer rounded-[10px]">
           <MdLogout />
           Logout
         </button>
-      </Link>
+      </form>
     </div>
   );
 };
